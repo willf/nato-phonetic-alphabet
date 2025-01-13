@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NATO Phonetic Alphabet Translator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      input,
+      button {
+        padding: 10px;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>NATO Phonetic Alphabet Translator</h1>
+    <input type="text" id="inputText" placeholder="Enter text" />
+    <button onclick="window.translate()">Translate</button>
+    <p id="result"></p>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const natoAlphabet = {
+          A: "Alfa",
+          B: "Bravo",
+          C: "Charlie",
+          D: "Delta",
+          E: "Echo",
+          F: "Foxtrot",
+          G: "Golf",
+          H: "Hotel",
+          I: "India",
+          J: "Juliett",
+          K: "Kilo",
+          L: "Lima",
+          M: "Mike",
+          N: "November",
+          O: "Oscar",
+          P: "Papa",
+          Q: "Quebec",
+          R: "Romeo",
+          S: "Sierra",
+          T: "Tango",
+          U: "Uniform",
+          V: "Victor",
+          W: "Whiskey",
+          X: "X-ray",
+          Y: "Yankee",
+          Z: "Zulu",
+          0: "Zero",
+          1: "One",
+          2: "Two",
+          3: "Three",
+          4: "Four",
+          5: "Five",
+          6: "Six",
+          7: "Seven",
+          8: "Eight",
+          9: "Niner",
+          " ": "(space)",
+        };
+
+        function translate() {
+          const inputText = document
+            .getElementById("inputText")
+            .value.toUpperCase();
+          let result = "";
+          for (let char of inputText) {
+            if (natoAlphabet[char]) {
+              result += natoAlphabet[char] + " ";
+            } else {
+              result += char + " ";
+            }
+          }
+          document.getElementById("result").innerText = result.trim();
+        }
+
+        window.translate = translate;
+      });
+    </script>
+  </body>
+</html>
